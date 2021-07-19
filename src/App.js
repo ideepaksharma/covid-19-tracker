@@ -3,6 +3,11 @@ import { FormControl, Select, MenuItem, Card, CardContent } from "@material-ui/c
 import { useState, useEffect } from 'react';
 import InfoBox from './InfoBox';
 import Map from './Map';
+import Table from './Table';
+import { sortData } from "./util";
+import LineGraph from './LineGraph';
+import "leaflet/dist/leaflet.css";
+import numeral from "numeral";
 
 function App() {
 
@@ -10,6 +15,9 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState('worldwide');
   const [countryInfo, setCountryInfo] = useState({});
+  const [tableData, setTableData] = useState([]);
+  const [mapCenter, setMapCenter] = useState({ lat: 50.110924, lng: 8.682127 });
+  const [mapZoom, setMapZoom] = useState(3);
 
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
@@ -31,6 +39,8 @@ function App() {
             value: country.countryInfo.iso3
           }));
 
+          const sortedData = sortData(data);
+          setTableData(sortedData);
           setCountries(countries);
         });
     };
@@ -56,6 +66,8 @@ function App() {
 
         //set all data from the country response.
         setCountryInfo(data);
+        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+        setMapZoom(4);
 
       });
   };
@@ -86,16 +98,19 @@ function App() {
           <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}></ InfoBox >
         </div >
 
-        <Map></Map>
+        <Map
+          center={mapCenter}
+          zoom={mapZoom}
+        />
 
       </div>
 
       <Card className="app__right">
         <CardContent>
           <h3>Cases by Country</h3>
+          <Table countries={tableData} />
           <h3>World wide Cases</h3>
-          { /* Country Table */}
-          { /* Graph */}
+          <LineGraph />
         </CardContent>
       </Card>
 

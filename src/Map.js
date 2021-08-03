@@ -1,9 +1,17 @@
-import React from 'react';
+import React from "react";
+import { MapContainer as LeafletMap, TileLayer, useMap } from "react-leaflet";
 import "./Map.css";
-import { MapContainer as LeafletMap, TileLayer } from "react-leaflet";
-import { showDataOnMap } from './util';
+import { showDataOnMap } from "./util";
+
+function ChangeMapView({ coords }) {
+    const map = useMap();
+    map.setView(coords, map.getZoom());
+
+    return null;
+}
 
 function Map({ countries, caseType, center, zoom }) {
+
     return (
         <div className="map">
             <LeafletMap center={center} zoom={zoom}>
@@ -12,9 +20,10 @@ function Map({ countries, caseType, center, zoom }) {
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
                 {showDataOnMap(countries, caseType)}
+                <ChangeMapView coords={center} />
             </LeafletMap>
         </div>
-    )
+    );
 }
 
-export default Map
+export default Map;

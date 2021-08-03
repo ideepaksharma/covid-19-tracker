@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 
@@ -87,16 +87,18 @@ function LineGraph({ caseType = "cases", ...props }) {
         <div className={props.className}>
             {data?.length > 0 && (
                 <Line
-                    options={options}
+
                     data={{
                         datasets: [
                             {
+                                label: caseType.toUpperCase(),
                                 backgroundColor: "rgba(204, 16, 52, 0.5)",
                                 borderColor: "#CC1034",
                                 data: data,
                             },
                         ],
                     }}
+                    options={options}
                 />
             )}
         </div>

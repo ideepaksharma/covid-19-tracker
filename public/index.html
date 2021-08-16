@@ -38,6 +38,17 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+  <!--The below configuration is for Amazon Lex Bot Integration-->
+  <script src="https://d3bgf8k7wda5aq.cloudfront.net/lex-web-ui-loader.min.js"></script>
+  <script>
+    var loaderOpts = {
+      baseUrl: 'https://d3bgf8k7wda5aq.cloudfront.net/',
+      shouldLoadMinDeps: true
+    };
+    var loader = new ChatBotUiLoader.IframeLoader(loaderOpts);
+    loader.load()
+      .catch(function (error) { console.error(error); });
+  </script>
 </body>
 
 </html>

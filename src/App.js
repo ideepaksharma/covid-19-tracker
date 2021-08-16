@@ -16,8 +16,8 @@ function App() {
   const [selectedCountry, setSelectedCountry] = useState("worldwide");
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
-  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
-  const [mapZoom, setMapZoom] = useState(3);
+  const [mapCenter, setMapCenter] = useState({ lat: 41.902782, lng: 12.496366 });
+  const [mapZoom, setMapZoom] = useState(2);
   const [mapCountries, setMapCountries] = useState([]);
   const [caseType, setCaseType] = useState("cases");
 
@@ -69,13 +69,11 @@ function App() {
         setCountryInfo(data);
         if (data.countryInfo == null) {
           //set to default
-          setMapCenter([34.80746, -40.4796]);
+          setMapCenter([41.902782, 12.496366]);
         } else {
           setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
         }
-
         setMapZoom(4);
-
       });
   };
 

@@ -1,10 +1,10 @@
 {
   "region": "eu-central-1",
   "cognito": {
-    "poolId": "eu-central-1:30957256-c0a1-4ee6-b265-b409881663da",
-    "appUserPoolClientId": "5v9e3h51q6gj83c8e915t12vp6",
-    "appUserPoolName": "eu-central-1_suDodWM19",
-    "appDomainName": "lexkwebkuikidentitypoolconfigkbgyjbdbtpjsde075122532278.auth.eu-central-1.amazoncognito.com",
+    "poolId": "eu-central-1:666102d8-f418-47da-847b-fecb8cea93c7",
+    "appUserPoolClientId": "3nj1f2kvsposllsrhk9vp29lik",
+    "appUserPoolName": "eu-central-1_rpqOd4Mr6",
+    "appDomainName": "lexkwebkuikidentitypoolconfigkiaxwhkwnvisc075122532278.auth.eu-central-1.amazoncognito.com",
     "aws_cognito_region": "eu-central-1",
     "region": "eu-central-1"
   },
@@ -14,8 +14,8 @@
     "v2BotLocaleId": "en_US",
     "botName": "CovidTrackerBot",
     "botAlias": "$LATEST",
-    "initialText": "You can ask me for latest covid data. Just type \"covid data for country\" or country name",
-    "initialSpeechInstruction": "Say 'Order Flowers' to get started.",
+    "initialText": "Ask me about latest covid data for any country!",
+    "initialSpeechInstruction": "",
     "initialUtterance": "",
     "reInitSessionAttributesOnRestart": false,
     "region": "eu-central-1",
@@ -24,7 +24,7 @@
   },
   "ui": {
     "parentOrigin": "https://covid-19-tracker-78b8f.web.app",
-    "toolbarTitle": "Covid-19 Tracker",
+    "toolbarTitle": "Covid-19 Tracker Bot",
     "toolbarLogo": "",
     "positiveFeedbackIntent": "Thumbs up",
     "negativeFeedbackIntent": "Thumbs down",
@@ -50,7 +50,7 @@
     "preset": "speech_recognition"
   },
   "iframe": {
-    "iframeOrigin": "https://d3bgf8k7wda5aq.cloudfront.net",
+    "iframeOrigin": "https://d28oq7qenysfih.cloudfront.net",
     "shouldLoadIframeMinimized": true,
     "iframeSrcPath": "/index.html#/?lexWebUiEmbed=true"
   }
